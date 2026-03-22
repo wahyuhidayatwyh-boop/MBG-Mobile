@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white"
+    app:strokeWidth="1.5dp"
+    app:strokeColor="#F1F5F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- FOTO MENU SECTION -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
+                android:background="@drawable/bg_gradient_top_shadow"
+                android:alpha="0.4" />
+
+            <TextView
+                android:id="@+id/tvItemDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_rounded_status"
+                android:backgroundTint="#CC103A5C"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="14-03-2026"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-black"
+                android:textSize="10sp"
+                android:letterSpacing="0.05" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvLabelCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MENU UTAMA"
+                android:textColor="#94A3B8"
+                android:textSize="9sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvMainSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Memuat info..."
+                android:textColor="#1E293B"
+                android:fontFamily="sans-serif-black"
+                android:textSize="14sp"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F5F9"
+                android:layout_marginVertical="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Tombol Aksi Vendor (Dikembalikan) -->
+                <ImageView
+                    android:id="@+id/btnEditItem"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="7dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    app:tint="#0284C7"
+                    android:background="@drawable/bg_icon_wrapper"
+                    android:backgroundTint="#F0F9FF"
+                    android:layout_marginEnd="8dp"/>
+
+                <ImageView
+                    android:id="@+id/btnDeleteItem"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="7dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    app:tint="#DC2626"
+                    android:background="@drawable/bg_icon_wrapper"
+                    android:backgroundTint="#FEF2F2" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvLihatDetailLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Lihat Detail"
+                    android:textColor="#103A5C"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-black"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:padding="6dp"
+                    android:src="@android:drawable/ic_media_play"
+                    app:tint="#103A5C"
+                    android:background="@drawable/bg_icon_wrapper"
+                    android:backgroundTint="#F1F5F9" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".HistoryActivity">
+
+    <!-- Motif Background Modern -->
+    <View
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="-300dp"
+        android:layout_marginEnd="-250dp"
+        android:background="@drawable/bg_circle_accent"
+        android:alpha="0.05"
+        app:layout_anchorGravity="top|end" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="24dp">
+
+            <!-- HEADER -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ARSIP DIGITAL"
+                        android:textColor="@color/mbg_green_dark"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="18sp"
+                        android:letterSpacing="0.02"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Riwayat Produksi &amp; Performa"
+                        android:textColor="#94A3B8"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnDeleteSelection"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_icon_wrapper"
+                    android:backgroundTint="#FFF1F2"
+                    android:padding="10dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    android:visibility="gone"
+                    app:tint="#E11D48"
+                    android:contentDescription="Hapus Terpilih" />
+            </RelativeLayout>
+
+            <!-- 1. SUMMARY CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/mbg_green_dark"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tvLabelSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RINGKASAN PERFORMA"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidelineCenter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.55" />
+
+                    <!-- Income Group -->
+                    <TextView
+                        android:id="@+id/tvLabelIncome"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="TOTAL PENDAPATAN"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelSummary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineCenter" />
+
+                    <TextView
+                        android:id="@+id/tvMainStatIncome"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:maxLines="1"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="12sp"
+                        app:autoSizeMaxTextSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelIncome"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineCenter" />
+
+                    <!-- Orders Group -->
+                    <TextView
+                        android:id="@+id/tvLabelOrders"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="STATUS PESANAN"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="end"
+                        app:layout_constraintTop_toTopOf="@+id/tvLabelIncome"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/guidelineCenter" />
+
+                    <TextView
+                        android:id="@+id/tvMainStatOrders"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="0 Selesai"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="8dp"
+                        android:gravity="end"
+                        android:maxLines="1"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="12sp"
+                        app:autoSizeMaxTextSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelOrders"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/guidelineCenter" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierStats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="bottom"
+                        app:constraint_referenced_ids="tvMainStatIncome,tvMainStatOrders" />
+
+                    <View
+                        android:id="@+id/dividerHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#20FFFFFF"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/barrierStats" />
+
+                    <!-- Filter Label -->
+                    <TextView
+                        android:id="@+id/tvLabelFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="FILTER:"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerHistory"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/scrollChips"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:scrollbars="none"
+                        app:layout_constraintTop_toTopOf="@+id/tvLabelFilter"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvLabelFilter"
+                        app:layout_constraintStart_toEndOf="@+id/tvLabelFilter"
+                        app:layout_constraintEnd_toEndOf="parent">
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chipGroupHistoryFilter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:singleSelection="true"
+                            app:selectionRequired="true"
+                            app:singleLine="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipHistoryDay"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="HARI"
+                                android:checked="true"
+                                app:chipBackgroundColor="@color/chip_background_selector"
+                                android:textColor="@color/chip_text_color_selector"
+                                app:chipStrokeWidth="0dp"
+                                android:textSize="9sp"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipHistoryWeek"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MINGGU"
+                                app:chipBackgroundColor="@color/chip_background_selector"
+                                android:textColor="@color/chip_text_color_selector"
+                                app:chipStrokeWidth="0dp"
+                                android:textSize="9sp"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipHistoryMonth"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BULAN"
+                                app:chipBackgroundColor="@color/chip_background_selector"
+                                android:textColor="@color/chip_text_color_selector"
+                                app:chipStrokeWidth="0dp"
+                                android:textSize="9sp"/>
+                        </com.google.android.material.chip.ChipGroup>
+                    </HorizontalScrollView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 2. TREN PRODUKSI -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TREN PRODUKSI (7 HARI TERAKHIR)"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9">
+                <LinearLayout
+                    android:id="@+id/layoutChartContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:padding="20dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 3. LOG AKTIVITAS -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp">
+                <TextView
+                    android:id="@+id/tvLabelList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LOG AKTIVITAS &amp; RIWAYAT"
+                    android:textColor="#64748B"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.1"/>
+                <TextView
+                    android:id="@+id/tvSelectAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="PILIH SEMUA"
+                    android:textColor="@color/mbg_green_primary"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-black"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHistoryList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false" />
+
+            <LinearLayout
+                android:id="@+id/layoutEmptyHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="60dp"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/logo_mbg"
+                    android:alpha="0.1"
+                    android:contentDescription="Empty" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Belum ada riwayat tercatat"
+                    android:textColor="#94A3B8"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- COMPACT FOOTER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="24dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/logo_mbg"
+                    android:alpha="0.2"
+                    android:contentDescription="Logo" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="MBG DIGITAL ARCHIVE"
+                    android:textColor="#CBD5E1"
+                    android:textSize="9sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.05"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavVendor"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:elevation="8dp"
+        app:menu="@menu/vendor_bottom_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconSize="24dp"
+        app:itemRippleColor="@null"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemActiveIndicatorStyle="@style/App.BottomNavigationView.ActiveIndicator" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

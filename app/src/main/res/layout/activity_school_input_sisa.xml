@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#103A5C"
+    tools:context=".SchoolInputSisaActivity">
+
+    <!-- Header Section (Standardized) -->
+    <LinearLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#103A5C"
+        android:orientation="horizontal"
+        android:paddingTop="48dp"
+        android:paddingHorizontal="24dp"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#33FFFFFF"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_menu_revert"
+                android:rotation="360"
+                app:tint="@color/white" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INPUT DATA"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-black"
+                android:textSize="12sp"
+                android:letterSpacing="0.1"
+                android:alpha="0.7" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sisa Makanan"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-black"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Main Content Body -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_rounded_top_white"
+        android:clipToPadding="false"
+        android:paddingTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingBottom="40dp">
+
+            <!-- Title & Info Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LENGKAPI DATA SISA HARIAN"
+                android:textColor="@color/mbg_slate_500"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="4dp"/>
+
+            <!-- Porsi Counter Card (Premium Style) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#F1F5F9"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="28dp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JUMLAH PORSI TERSISA"
+                        android:textColor="@color/mbg_slate_600"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginBottom="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMinus"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:text="−"
+                            android:textColor="#103A5C"
+                            android:textSize="24sp"
+                            app:backgroundTint="#F1F5F9"
+                            app:cornerRadius="32dp" />
+
+                        <TextView
+                            android:id="@+id/tvSisaCount"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/mbg_slate_800"
+                            android:textSize="56sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPlus"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:text="+"
+                            android:textColor="#103A5C"
+                            android:textSize="24sp"
+                            app:backgroundTint="#F1F5F9"
+                            app:cornerRadius="32dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMaxPorsiInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Maksimal: -- Porsi"
+                        android:textColor="@color/mbg_slate_400"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Alasan Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alasan Utama"
+                android:textColor="@color/mbg_slate_800"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxStrokeColor="#103A5C"
+                app:hintTextColor="#103A5C"
+                app:startIconDrawable="@android:drawable/ic_menu_help"
+                app:startIconTint="@color/mbg_slate_400">
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerReason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pilih Alasan Sisa"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Penyaluran Card Style -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alokasi Penyaluran"
+                android:textColor="@color/mbg_slate_800"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#F1F5F9">
+                <RadioGroup
+                    android:id="@+id/rgDistribution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+                    <RadioButton
+                        android:id="@+id/rbSedekah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dibagikan ke Siswa Lain / Sedekah"
+                        android:textSize="14sp"
+                        android:paddingVertical="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        app:buttonTint="#103A5C" />
+                    <RadioButton
+                        android:id="@+id/rbBawaPulang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dibawa Pulang Siswa"
+                        android:textSize="14sp"
+                        android:paddingVertical="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        app:buttonTint="#103A5C" />
+                    <RadioButton
+                        android:id="@+id/rbLainnya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lainnya"
+                        android:textSize="14sp"
+                        android:paddingVertical="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        app:buttonTint="#103A5C" />
+                </RadioGroup>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Catatan Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catatan Tambahan"
+                android:textColor="@color/mbg_slate_800"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#F1F5F9">
+                <EditText
+                    android:id="@+id/etSisaNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="3"
+                    android:gravity="top"
+                    android:padding="16dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Tambahkan catatan jika diperlukan..."
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:inputType="textMultiLine"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Save Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveSisa"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="SIMPAN DATA SISA"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                app:cornerRadius="18dp"
+                app:backgroundTint="#103A5C"
+                app:elevation="6dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Motif Background Modern -->
+    <View
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="-350dp"
+        android:layout_marginEnd="-300dp"
+        android:background="@drawable/bg_circle_accent"
+        android:alpha="0.1"
+        app:layout_anchorGravity="top|end" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LAPORAN &amp; BANTUAN"
+                android:textColor="@color/mbg_green_dark"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.02" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="20dp">
+
+            <!-- Card Navigasi Tab dengan Soft Shadow & Border Tipis -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginHorizontal="4dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <HorizontalScrollView
+                        android:id="@+id/tabScrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:requiresFadingEdge="horizontal"
+                        android:fadingEdgeLength="40dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="4dp"
+                            android:paddingVertical="4dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnTabAllergy"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alergi"
+                                android:layout_marginEnd="8dp"
+                                app:cornerRadius="16dp"
+                                android:fontFamily="sans-serif-black" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnTabSisa"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sisa"
+                                android:layout_marginEnd="8dp"
+                                app:cornerRadius="16dp"
+                                android:fontFamily="sans-serif-black" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnTabHelp"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bantuan"
+                                android:layout_marginEnd="8dp"
+                                app:cornerRadius="16dp"
+                                android:fontFamily="sans-serif-black" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnTabReviews"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ulasan"
+                                app:cornerRadius="16dp"
+                                android:fontFamily="sans-serif-black" />
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center_vertical"
+                        android:alpha="0.6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Geser untuk menu lainnya"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/mbg_slate_500"
+                            tools:ignore="SmallSp" />
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@android:drawable/ic_media_play"
+                            app:tint="@color/mbg_slate_500"
+                            android:contentDescription="Scroll indicator" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Content Allergy -->
+            <LinearLayout
+                android:id="@+id/containerAllergy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REKAPITULASI ALERGI SISWA"
+                    android:textColor="#94A3B8"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="4dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAllergySummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_allergy_summary" />
+            </LinearLayout>
+
+            <!-- Content Sisa -->
+            <LinearLayout
+                android:id="@+id/containerSisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REKAPITULASI SISA MAKANAN"
+                    android:textColor="#94A3B8"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="4dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSisaSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_sisa_summary" />
+            </LinearLayout>
+
+            <!-- Content Help -->
+            <LinearLayout
+                android:id="@+id/containerHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STATUS KURIR PENGIRIMAN"
+                    android:textColor="#94A3B8"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="4dp"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutNoDriver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingVertical="40dp">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@android:drawable/ic_menu_directions"
+                        app:tint="#F1F5F9"
+                        android:contentDescription="No driver" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Belum ada penugasan kurir"
+                        android:textColor="#94A3B8"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutDeliveryActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginHorizontal="4dp"
+                        app:cardCornerRadius="28dp"
+                        app:cardElevation="4dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#F1F5F9"
+                        app:cardBackgroundColor="@color/white">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="24dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvDriverNameHelp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nama Driver"
+                                android:textColor="#1E293B"
+                                android:textSize="18sp"
+                                android:fontFamily="sans-serif-black"/>
+                            <TextView
+                                android:id="@+id/tvDriverStatusHelp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Status: OTW"
+                                android:textColor="@color/mbg_green_primary"
+                                android:fontFamily="sans-serif-bold"/>
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnContactDriver"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:layout_marginTop="20dp"
+                                android:text="HUBUNGI KURIR"
+                                android:fontFamily="sans-serif-black"
+                                app:cornerRadius="16dp"
+                                app:backgroundTint="#F0F9FF"
+                                android:textColor="@color/mbg_green_primary"
+                                app:icon="@null" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- Laporan Darurat -->
+                <TextView
+                    android:id="@+id/labelIssue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="PERINGATAN KENDALA"
+                    android:visibility="gone"
+                    android:textColor="#EF4444"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="4dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDriverIssue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="#FEF2F2"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#FEE2E2">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="24dp" android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvDriverIssueMsg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Laporan: Ban Bocor"
+                            android:textColor="#991B1B"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-black"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSendBackup"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:layout_marginTop="20dp"
+                            android:text="KIRIM ARMADA PENGGANTI"
+                            android:fontFamily="sans-serif-black"
+                            app:backgroundTint="#EF4444"
+                            app:cornerRadius="16dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnNotifySchool"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:layout_marginTop="10dp"
+                            android:text="KABARI SEKOLAH"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:textColor="#991B1B"
+                            app:strokeColor="#EF4444"
+                            app:cornerRadius="16dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCallCenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="32dp"
+                    android:text="HUBUNGI ADMIN PUSAT"
+                    android:fontFamily="sans-serif-black"
+                    app:cornerRadius="20dp"
+                    app:backgroundTint="#475569"
+                    app:icon="@null" />
+            </LinearLayout>
+
+            <!-- Content Reviews -->
+            <LinearLayout
+                android:id="@+id/containerReviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ULASAN TERBARU SEKOLAH"
+                    android:textColor="#94A3B8"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="4dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSchoolReviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_school_review" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavVendor"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:elevation="8dp"
+        app:menu="@menu/vendor_bottom_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconSize="24dp"
+        app:itemRippleColor="@null"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemActiveIndicatorStyle="@style/App.BottomNavigationView.ActiveIndicator" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

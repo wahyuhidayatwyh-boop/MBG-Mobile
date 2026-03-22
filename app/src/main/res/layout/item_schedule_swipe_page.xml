@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp">
+        <ImageView
+            android:id="@+id/ivPagePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_mbg" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:id="@+id/tvPageGiziLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GIZI A (Rp13.000)"
+            android:textColor="@color/mbg_green_dark"
+            android:fontFamily="sans-serif-black"
+            android:textSize="11sp"
+            android:letterSpacing="0.1"
+            android:background="#F0FDF4"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp" />
+
+        <TextView
+            android:id="@+id/tvPageMenuName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Nama Menu"
+            android:textColor="#1E293B"
+            android:fontFamily="sans-serif-black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvPageTotalPorsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="500 Porsi"
+            android:textColor="#64748B"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/tvPageSchools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Sekolah: SD Negeri 1, SD Negeri 2"
+            android:textColor="#475569"
+            android:textSize="11sp"
+            android:lineSpacingExtra="2dp" />
+
+    </LinearLayout>
+</LinearLayout>

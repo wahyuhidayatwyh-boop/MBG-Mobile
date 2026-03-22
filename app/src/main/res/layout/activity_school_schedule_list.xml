@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#103A5C"
+    tools:context=".SchoolScheduleListActivity">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#103A5C"
+        android:orientation="horizontal"
+        android:paddingTop="48dp"
+        android:paddingHorizontal="24dp"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnBackSchoolSchedule"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#33FFFFFF"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_menu_revert"
+                android:rotation="360"
+                app:tint="@color/white" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JADWAL"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-black"
+                android:textSize="12sp"
+                android:letterSpacing="0.1"
+                android:alpha="0.7" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu Mendatang"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-black"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Main Content Body -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_rounded_top_white"
+        android:clipToPadding="false"
+        android:paddingTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavCard">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="40dp">
+
+            <!-- Title Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RENCANA MENU BEBERAPA HARI KE DEPAN"
+                android:textColor="@color/mbg_slate_500"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="8dp"/>
+
+            <!-- Filter Section (Enhanced UI) -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="4dp">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:selectionRequired="true"
+                    app:chipSpacingHorizontal="12dp">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipAll"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Semua Menu"
+                        android:checked="true"
+                        app:chipCornerRadius="16dp"
+                        app:chipBackgroundColor="@color/chip_background_selector_school"
+                        android:textColor="@color/chip_text_selector_school"
+                        app:chipStrokeWidth="0dp"
+                        app:checkedIconVisible="false"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGiziA"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gizi Kategori A"
+                        app:chipCornerRadius="16dp"
+                        app:chipBackgroundColor="@color/chip_background_selector_school"
+                        android:textColor="@color/chip_text_selector_school"
+                        app:chipStrokeWidth="0dp"
+                        app:checkedIconVisible="false"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipGiziB"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gizi Kategori B"
+                        app:chipCornerRadius="16dp"
+                        app:chipBackgroundColor="@color/chip_background_selector_school"
+                        android:textColor="@color/chip_text_selector_school"
+                        app:chipStrokeWidth="0dp"
+                        app:checkedIconVisible="false"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="12sp" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSchoolUpcomingSchedules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_schedule_card" />
+
+            <TextView
+                android:id="@+id/tvSchoolEmptySchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Belum ada jadwal menu mendatang.\nSilakan cek kembali nanti."
+                android:gravity="center"
+                android:layout_marginTop="100dp"
+                android:textColor="#94A3B8"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="4dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Navigation Bar - Bottom Sticky -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavCard"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="4dp">
+
+            <!-- Beranda -->
+            <LinearLayout
+                android:id="@+id/navBeranda"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <ImageView
+                    android:id="@+id/ivNavHome"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/nav_home_selector" />
+                <TextView
+                    android:id="@+id/tvNavHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Beranda"
+                    android:textSize="11sp"
+                    android:textColor="@color/nav_text_selector"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- Menu (Upcoming) - ACTIVE -->
+            <LinearLayout
+                android:id="@+id/navMenu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <ImageView
+                    android:id="@+id/ivNavMenu"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/nav_menu_selector" />
+                <TextView
+                    android:id="@+id/tvNavMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Menu"
+                    android:textSize="11sp"
+                    android:textColor="@color/mbg_green_primary"
+                    android:fontFamily="sans-serif-bold" />
+            </LinearLayout>
+
+            <!-- Riwayat -->
+            <LinearLayout
+                android:id="@+id/navHistory"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <ImageView
+                    android:id="@+id/ivNavHistory"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/nav_history_selector" />
+                <TextView
+                    android:id="@+id/tvNavHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Riwayat"
+                    android:textSize="11sp"
+                    android:textColor="@color/nav_text_selector"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- Akun -->
+            <LinearLayout
+                android:id="@+id/navAkun"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <ImageView
+                    android:id="@+id/ivNavAccount"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/nav_account_selector" />
+                <TextView
+                    android:id="@+id/tvNavAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Akun"
+                    android:textSize="11sp"
+                    android:textColor="@color/nav_text_selector"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

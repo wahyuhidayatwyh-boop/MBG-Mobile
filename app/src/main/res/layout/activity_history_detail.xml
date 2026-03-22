@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Motif Background Dashboard -->
+    <View
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="-320dp"
+        android:layout_marginEnd="-280dp"
+        android:background="@drawable/bg_circle_accent"
+        android:alpha="0.08"
+        app:layout_anchorGravity="top|end" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp">
+
+            <ImageView
+                android:id="@+id/btnBackHistoryDetail"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_circle_accent"
+                android:backgroundTint="#F8FAFC"
+                android:padding="12dp"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@color/mbg_green_dark"
+                android:contentDescription="Kembali" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AUDIT DIGITAL"
+                    android:textColor="@color/mbg_green_dark"
+                    android:fontFamily="sans-serif-black"
+                    android:textSize="12sp"
+                    android:letterSpacing="0.1" />
+
+                <TextView
+                    android:id="@+id/tvDetailDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-- / -- / ----"
+                    android:textColor="@color/mbg_green_dark"
+                    android:fontFamily="sans-serif-black"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollViewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="40dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="8dp">
+
+            <!-- 1. SUMMARY AUDIT CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/mbg_green_dark"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tvLabelAuditDetail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="RINGKASAN AUDIT AKHIR"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.1"
+                        app:layout_constraintTop_toTopOf="@+id/cardDetailAuditStatus"
+                        app:layout_constraintBottom_toBottomOf="@+id/cardDetailAuditStatus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/cardDetailAuditStatus" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardDetailAuditStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#22C55E"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+                        <TextView
+                            android:id="@+id/tvDetailAuditStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="WAJAR"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-black"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Revenue Group -->
+                    <TextView
+                        android:id="@+id/tvLabelRevDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="TOTAL PENDAPATAN"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toBottomOf="@+id/cardDetailAuditStatus"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvDetailTotalRevenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelRevDetail"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Capital Group -->
+                    <TextView
+                        android:id="@+id/tvLabelCapDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL MODAL"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toTopOf="@+id/tvLabelRevDetail"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvDetailTotalCapital"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelCapDetail"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <View
+                        android:id="@+id/dividerDetailAudit"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#20FFFFFF"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDetailTotalRevenue" />
+
+                    <!-- Margin Group -->
+                    <TextView
+                        android:id="@+id/tvLabelMarginDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="MARGIN TOTAL (%)"
+                        android:textColor="#94A3B8"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerDetailAudit"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvDetailTotalMargin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0%"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelMarginDetail"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Net Profit Group -->
+                    <TextView
+                        android:id="@+id/tvLabelNetDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SELISIH (NET)"
+                        android:textColor="#94A3B8"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toTopOf="@+id/tvLabelMarginDetail"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvDetailNetProfit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#10B981"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelNetDetail"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 2. ANALISIS PER KATEGORI -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ANALISIS DISTRIBUSI PER KATEGORI"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:minWidth="600dp">
+
+                        <!-- Table Header -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingVertical="12dp"
+                            android:background="#F8FAFC">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:text="Kategori" android:textSize="10sp" android:fontFamily="sans-serif-black" android:paddingStart="12dp"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.6" android:text="Porsi" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8" android:text="Harga" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:text="Pendapatan" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:text="Modal" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8" android:text="Margin" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8" android:text="Status" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center" android:paddingEnd="12dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/containerCategoryAnalysisDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 3. AI INSIGHTS -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F0FDF4"
+                app:strokeWidth="1dp"
+                app:strokeColor="#DCFCE7">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@android:drawable/ic_dialog_info"
+                        app:tint="#16A34A"/>
+                    <TextView
+                        android:id="@+id/tvDetailAiInsight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Operasional dalam batas wajar. Modal terdistribusi secara proporsional."
+                        android:textColor="#166534"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 4. RINCIAN MENU & SEKOLAH -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/mbg_slate_100">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+                        <com.google.android.material.card.MaterialCardView android:layout_width="80dp" android:layout_height="80dp" app:cardCornerRadius="16dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivDetailMenuPhoto" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2" android:contentDescription="Foto Menu" />
+                        </com.google.android.material.card.MaterialCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:orientation="vertical">
+                            <TextView android:id="@+id/tvDetailMenuName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Menu Tidak Tercatat" android:textColor="@color/mbg_slate_800" android:fontFamily="sans-serif-black" android:textSize="16sp"/>
+                            <TextView android:id="@+id/tvDetailTargetPorsi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Target: 0 Porsi" android:textColor="@color/mbg_slate_400" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutCategoryPhotos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp"
+                        android:visibility="gone">
+                        <LinearLayout android:id="@+id/layoutPhoto13K" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:visibility="gone">
+                            <com.google.android.material.card.MaterialCardView android:layout_width="100dp" android:layout_height="100dp" app:cardCornerRadius="12dp" app:strokeWidth="1dp" app:strokeColor="#F1F5F9">
+                                <ImageView android:id="@+id/ivPhoto13K" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2"/></com.google.android.material.card.MaterialCardView>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Menu Gizi A" android:textSize="10sp" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" android:textColor="@color/mbg_slate_400"/>
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/layoutPhoto15K" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:visibility="gone">
+                            <com.google.android.material.card.MaterialCardView android:layout_width="100dp" android:layout_height="100dp" app:cardCornerRadius="12dp" app:strokeWidth="1dp" app:strokeColor="#F1F5F9">
+                                <ImageView android:id="@+id/ivPhoto15K" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2"/></com.google.android.material.card.MaterialCardView>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Menu Gizi B" android:textSize="10sp" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" android:textColor="@color/mbg_slate_400"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginBottom="16dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerDetailSchools"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="REALISASI TOTAL" android:textColor="@color/mbg_slate_400" android:fontFamily="sans-serif-black" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvDetailTotalPorsiLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Porsi" android:textColor="@color/mbg_green_dark" android:fontFamily="sans-serif-black" android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 5. BUKTI AUDIT & KEPATUHAN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUKTI AUDIT &amp; KEPATUHAN"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <!-- AUDIT BAHAN BAKU -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/mbg_slate_100">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Audit Persiapan Pagi" android:textColor="@color/mbg_slate_800" android:fontFamily="sans-serif-black" android:textSize="13sp" android:layout_marginBottom="12dp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivDetailPhotoNota" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2" />
+                        </com.google.android.material.card.MaterialCardView>
+                        <View android:layout_width="12dp" android:layout_height="match_parent"/>
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivDetailPhotoBahan" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvDetailWeightRaw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Berat: -- KG" android:textColor="@color/mbg_slate_600" android:fontFamily="sans-serif-bold" android:textSize="12sp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- HASIL QC VISUAL AI (DETAILED) 1 -->
+            <include layout="@layout/item_ai_analysis_result"
+                android:id="@+id/layoutDetailAiResult1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- HASIL QC VISUAL AI (DETAILED) 2 -->
+            <include layout="@layout/item_ai_analysis_result"
+                android:id="@+id/layoutDetailAiResult2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- FALLBACK QC AI VISUAL -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDetailSmallAi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardCornerRadius="20dp" app:cardElevation="2dp" app:cardBackgroundColor="@color/white" app:strokeWidth="1dp" app:strokeColor="@color/mbg_slate_100"
+                android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="QC Visual AI" android:textColor="@color/mbg_slate_800" android:fontFamily="sans-serif-black" android:textSize="13sp" android:layout_marginBottom="12dp" />
+                    <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="150dp" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                        <ImageView android:id="@+id/ivDetailPhotoAi" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <TextView android:id="@+id/tvDetailAiScore" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Status: --" android:textColor="@color/mbg_green_dark" android:fontFamily="sans-serif-black" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvDetailBoxWeight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- gr" android:textColor="@color/mbg_slate_600" android:fontFamily="sans-serif-black" android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SAFETY & SANITASI -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardCornerRadius="20dp" app:cardElevation="2dp" app:cardBackgroundColor="@color/white" app:strokeWidth="1dp" app:strokeColor="@color/mbg_slate_100">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Safety &amp; Sanitasi" android:textColor="@color/mbg_slate_800" android:fontFamily="sans-serif-black" android:textSize="13sp" android:layout_marginBottom="12dp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+                            <ImageView android:id="@+id/ivDetailPhotoSafety" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2" />
+                        </com.google.android.material.card.MaterialCardView>
+                        <View android:layout_width="12dp" android:layout_height="match_parent"/>
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+                            <ImageView android:id="@+id/ivDetailPhotoSanitasi" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvDetailSafetyTemp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Suhu: -- °C" android:textColor="@color/mbg_slate_600" android:fontFamily="sans-serif-bold" android:textSize="12sp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- LOG KERUSAKAN -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/mbg_slate_100">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PORSI RUSAK" android:textColor="@color/mbg_slate_400" android:textSize="9sp" android:fontFamily="sans-serif-black"/>
+                            <TextView android:id="@+id/tvDetailWastage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Porsi" android:textColor="#EF4444" android:textSize="13sp" android:fontFamily="sans-serif-black"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="end">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ALASAN" android:textColor="@color/mbg_slate_400" android:textSize="9sp" android:fontFamily="sans-serif-black"/>
+                            <TextView android:id="@+id/tvDetailWastageReason" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:textColor="@color/mbg_slate_800" android:textSize="13sp" android:fontFamily="sans-serif-black"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- FOOTER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="16dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/logo_mbg"
+                    android:alpha="0.2" />
+                <TextView
+                    android:id="@+id/tvDetailLogId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="ID: --"
+                    android:textColor="#CBD5E1"
+                    android:textSize="9sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Badan Gizi Nasional • Digital Archive"
+                    android:textColor="#CBD5E1"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnExportPdf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:text="EXPORT PDF"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/mbg_green_dark"
+        app:icon="@android:drawable/ic_menu_save"
+        app:iconTint="@android:color/white"
+        android:fontFamily="sans-serif-black"
+        app:elevation="4dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

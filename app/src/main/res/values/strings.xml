@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">MBG Mobile</string>
+    <string name="login_header_title">MBG SHIELD</string>
+    <string name="login_header_subtitle">Portal Manajemen Vendor</string>
+    <string name="hint_vendor_id">ID Vendor</string>
+    <string name="hint_password">Kata Sandi</string>
+    <string name="btn_login_text">MASUK AMAN &amp; IKAT PERANGKAT</string>
+    <string name="footer_text">Diamankan oleh Sistem Nasional MBG</string>
+    <string name="error_empty_vendor">ID Vendor tidak boleh kosong</string>
+    <string name="error_empty_password">Kata Sandi tidak boleh kosong</string>
+    <string name="auth_message">Mengautentikasi... Perangkat terikat pada: %1$s %2$s</string>
+    <string name="remember_me">Ingat saya</string>
+    <string name="forgot_password">Lupa Kata Sandi?</string>
+    <string name="enterprise_secure">🔒 Keamanan Perusahaan</string>
+    <string name="vendor_authentication">Autentikasi Vendor</string>
+    <string name="ssl_info">Koneksi Terenkripsi SSL 256-bit</string>
+    <string name="copyright">© 2024 MBG-SHIELD. Hak cipta dilindungi undang-undang.</string>
+    <string name="authenticating">MENGAUTENTIKASI...</string>
+
+    <!-- Register Strings -->
+    <string name="register_header_title">PENDAFTARAN</string>
+    <string name="register_header_subtitle">Lengkapi data untuk bergabung</string>
+    <string name="hint_full_name">Nama Lengkap</string>
+    <string name="hint_email">Email Bisnis</string>
+    <string name="hint_confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="btn_register_text">DAFTAR SEKARANG</string>
+    <string name="already_have_account">Sudah punya akun? Masuk</string>
+    <string name="dont_have_account">Belum punya akun? Daftar</string>
+    <string name="register_success">Pendaftaran berhasil! Silakan masuk.</string>
+
+    <!-- Dashboard Strings -->
+    <string name="dash_welcome">Halo, Vendor Dapur Pusat</string>
+    <string name="dash_vendor_id">ID: VND-2026-001</string>
+    <string name="dash_status_secure">✅ Device Binding Aman</string>
+    <string name="dash_target_title">Target Porsi</string>
+    <string name="dash_target_value">500</string>
+    <string name="dash_integrity_title">Skor Integritas</string>
+    <string name="dash_integrity_value">100</string>
+    <string name="menu_input_title">Input Menu &amp; Bahan Baku</string>
+    <string name="menu_input_desc">Kelola ketersediaan menu harian</string>
+    <string name="menu_visual_title">Verifikasi Visual AI (Foto)</string>
+    <string name="menu_visual_desc">Verifikasi kualitas makanan lewat AI</string>
+    <string name="menu_dist_title">Mulai Distribusi (Dispatch)</string>
+    <string name="menu_dist_desc">Pelacakan pengiriman &amp; GPS</string>
+    <string name="menu_history_title">Riwayat &amp; Laporan</string>
+    <string name="menu_history_desc">Lihat performa dan data log</string>
+</resources>

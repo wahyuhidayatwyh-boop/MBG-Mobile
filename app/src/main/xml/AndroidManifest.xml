@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MBGDapur">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY_DISINI" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Vendor Activities -->
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".DashboardActivity" android:exported="false" />
+        <activity android:name=".MorningPrepActivity" android:exported="false" />
+        <activity android:name=".CookingProgressActivity" android:exported="false" />
+        <activity android:name=".AIVerificationActivity" android:exported="false" />
+        <activity android:name=".FoodSafetyActivity" android:exported="false" />
+        <activity android:name=".CourierHandoverActivity" android:exported="false" />
+        <activity android:name=".VendorWadahScanActivity" android:exported="false" />
+        <activity android:name=".SanitationActivity" android:exported="false" />
+        <activity android:name=".FinalReportActivity" android:exported="false" />
+        <activity android:name=".ReportIssueActivity" android:exported="false" />
+        <activity android:name=".HistoryActivity" android:exported="false" />
+        <activity android:name=".HelpActivity" android:exported="false" />
+        <activity android:name=".ScheduleActivity" android:exported="false" />
+        <activity android:name=".VendorReportsActivity" android:exported="false" />
+
+        <!-- Role Sekolah -->
+        <activity android:name=".SchoolDashboardActivity" android:exported="false" />
+        <activity android:name=".SchoolAICheckActivity" android:exported="false" />
+        <activity android:name=".SchoolRatingActivity" android:exported="false" />
+        <activity android:name=".SchoolCourierTrackingActivity" android:exported="false" />
+        <activity android:name=".SchoolAnomaliReportActivity" android:exported="false" />
+        <activity android:name=".SchoolInputSisaActivity" android:exported="false" />
+        <activity android:name=".SchoolQRActivity" android:exported="false" />
+        <activity android:name=".SchoolInputSiswaActivity" android:exported="false" />
+        <activity android:name=".SchoolAllergyActivity" android:exported="false" />
+
+        <!-- Role Driver -->
+        <activity android:name=".DriverLoginActivity" android:exported="false" />
+        <activity android:name=".DriverDashboardActivity" android:exported="false" />
+        <activity android:name=".DriverStandbyActivity" android:exported="false" />
+        <activity android:name=".DriverManifestActivity" android:exported="false" />
+        <activity android:name=".DriverNavigationActivity" android:exported="false" />
+        <activity android:name=".DriverProofOfDeliveryActivity" android:exported="false" />
+        <activity android:name=".DriverDeliverySuccessActivity" android:exported="false" />
+        <activity android:name=".DriverCollectionActivity" android:exported="false" />
+        <activity android:name=".DriverEndShiftActivity" android:exported="false" />
+        <activity android:name=".DriverShiftCompletedActivity" android:exported="false" />
+        <activity android:name=".DriverHelpActivity" android:exported="false" />
+        <activity android:name=".DriverProfileActivity" android:exported="false" />
+        <activity android:name=".DriverVehicleDetailActivity" android:exported="false" />
+        <activity android:name=".DriverHistoryActivity" android:exported="false" />
+        <activity android:name=".DriverHistoryDetailActivity" android:exported="false" />
+
+    </application>
+
+</manifest>

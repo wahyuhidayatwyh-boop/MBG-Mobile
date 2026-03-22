@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:id="@+id/tvDialogSchoolName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="SDN 1 Purwokerto"
+        android:textColor="#475569"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvDialogSchoolPorsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="150 Porsi"
+        android:textColor="@color/mbg_green_dark"
+        android:fontFamily="sans-serif-black"
+        android:textSize="14sp" />
+</LinearLayout>

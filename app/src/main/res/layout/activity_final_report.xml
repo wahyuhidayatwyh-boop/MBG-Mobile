@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".FinalReportActivity">
+
+    <!-- Motif Background Modern -->
+    <View
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="-300dp"
+        android:layout_marginEnd="-250dp"
+        android:background="@drawable/bg_circle_accent"
+        android:alpha="0.05"
+        app:layout_anchorGravity="top|end" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="24dp">
+
+            <!-- HEADER -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:id="@+id/btnBackReport"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_wrapper"
+                    android:backgroundTint="#F8FAFC"
+                    android:padding="10dp"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="@color/mbg_green_dark"
+                    android:elevation="0dp"
+                    android:contentDescription="Back" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8. LAPORAN AKHIR &amp; AUDIT"
+                        android:textColor="@color/mbg_green_dark"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="18sp"
+                        android:letterSpacing="0.02"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transparansi Margin &amp; Audit MBG"
+                        android:textColor="#94A3B8"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- 1. SUMMARY CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/mbg_green_dark"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tvLabelAudit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="RINGKASAN AUDIT TOTAL"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.1"
+                        app:layout_constraintTop_toTopOf="@+id/cardAuditStatus"
+                        app:layout_constraintBottom_toBottomOf="@+id/cardAuditStatus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/cardAuditStatus" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAuditStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#22C55E"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+                        <TextView
+                            android:id="@+id/tvAuditStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="WAJAR"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-black"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Revenue Group -->
+                    <TextView
+                        android:id="@+id/tvLabelRevenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="TOTAL PENDAPATAN"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toBottomOf="@+id/cardAuditStatus"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvTotalRevenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelRevenue"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Capital Group -->
+                    <TextView
+                        android:id="@+id/tvLabelCapital"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL MODAL"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toTopOf="@+id/tvLabelRevenue"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvTotalCapital"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelCapital"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <View
+                        android:id="@+id/dividerAudit"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#20FFFFFF"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTotalRevenue" />
+
+                    <!-- Margin Group -->
+                    <TextView
+                        android:id="@+id/tvLabelMargin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="MARGIN TOTAL (%)"
+                        android:textColor="#94A3B8"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerAudit"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvTotalMargin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0%"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelMargin"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Net Profit Group -->
+                    <TextView
+                        android:id="@+id/tvLabelNet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SELISIH (NET)"
+                        android:textColor="#94A3B8"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintTop_toTopOf="@+id/tvLabelMargin"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvNetProfit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#10B981"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelNet"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 2. ANALISIS PER KATEGORI -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ANALISIS DISTRIBUSI PER KATEGORI"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:minWidth="600dp">
+
+                        <!-- Table Header -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingVertical="12dp"
+                            android:background="#F8FAFC">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:text="Kategori" android:textSize="10sp" android:fontFamily="sans-serif-black" android:paddingStart="12dp"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.6" android:text="Porsi" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8" android:text="Harga" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:text="Pendapatan" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:text="Modal" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8" android:text="Margin" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8" android:text="Status" android:textSize="10sp" android:fontFamily="sans-serif-black" android:textAlignment="center" android:paddingEnd="12dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/containerCategoryAnalysis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 3. AI INSIGHTS -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F0FDF4"
+                app:strokeWidth="1dp"
+                app:strokeColor="#DCFCE7">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@android:drawable/ic_dialog_info"
+                        app:tint="#16A34A"/>
+                    <TextView
+                        android:id="@+id/tvAiInsight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Operasional dalam batas wajar. Modal terdistribusi secara proporsional."
+                        android:textColor="#166534"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- BUKTI AUDIT & KEPATUHAN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUKTI AUDIT &amp; KEPATUHAN"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <!-- AUDIT PAGI -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9"
+                app:cardBackgroundColor="@android:color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Audit Persiapan Pagi" android:fontFamily="sans-serif-black" android:textColor="@color/mbg_green_dark" android:textSize="13sp"/>
+                        <ImageView android:id="@+id/ivCheckPrep" android:layout_width="18dp" android:layout_height="18dp" android:layout_alignParentEnd="true" android:src="@android:drawable/checkbox_on_background" android:visibility="gone"/>
+                    </RelativeLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivPrepThumb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <View android:layout_width="12dp" android:layout_height="match_parent"/>
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivRawThumb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2"/>
+                            <ImageView android:id="@+id/ivCheckRaw" android:layout_width="16dp" android:layout_height="16dp" android:layout_gravity="top|end" android:layout_margin="4dp" android:src="@android:drawable/checkbox_on_background" android:visibility="gone"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvRawWeight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="-- KG" android:textColor="#1E293B" android:textSize="12sp" android:fontFamily="sans-serif-bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- QC AI VISUAL MENU 1 -->
+            <include layout="@layout/item_ai_analysis_result"
+                android:id="@+id/layoutAiResult1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- QC AI VISUAL MENU 2 -->
+            <include layout="@layout/item_ai_analysis_result"
+                android:id="@+id/layoutAiResult2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Original QC AI (Small version as fallback) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSmallAiResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9"
+                app:cardBackgroundColor="@android:color/white"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="QC AI Visual" android:fontFamily="sans-serif-black" android:textColor="@color/mbg_green_dark" android:textSize="13sp"/>
+                        <ImageView android:id="@+id/ivCheckAi" android:layout_width="18dp" android:layout_height="18dp" android:layout_alignParentEnd="true" android:src="@android:drawable/checkbox_on_background" android:visibility="gone"/>
+                    </RelativeLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+                        <com.google.android.material.card.MaterialCardView android:layout_width="80dp" android:layout_height="80dp" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivAiThumb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:orientation="vertical" android:gravity="center_vertical">
+                            <TextView android:id="@+id/tvAiResult" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lulus Verifikasi" android:textColor="#16A34A" android:textSize="12sp" android:fontFamily="sans-serif-bold"/>
+                            <TextView android:id="@+id/tvBoxWeight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- Gram" android:textColor="#1E293B" android:textSize="14sp" android:fontFamily="sans-serif-black"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SAFETY & SANITASI -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9"
+                app:cardBackgroundColor="@android:color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Safety &amp; Sanitasi" android:fontFamily="sans-serif-black" android:textColor="@color/mbg_green_dark" android:textSize="13sp"/>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:orientation="horizontal">
+                            <ImageView android:id="@+id/ivCheckSafety" android:layout_width="18dp" android:layout_height="18dp" android:src="@android:drawable/checkbox_on_background" android:visibility="gone" android:layout_marginEnd="4dp"/>
+                            <ImageView android:id="@+id/ivCheckSanitasi" android:layout_width="18dp" android:layout_height="18dp" android:src="@android:drawable/checkbox_on_background" android:visibility="gone"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivSafetyThumb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <View android:layout_width="12dp" android:layout_height="match_parent"/>
+                        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="80dp" android:layout_weight="1" app:cardCornerRadius="12dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#F8FAFC">
+                            <ImageView android:id="@+id/ivSanitasiThumb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/logo_mbg" android:alpha="0.2"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvSafetyTemp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="-- °C" android:textColor="#1E293B" android:textSize="12sp" android:fontFamily="sans-serif-bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#F1F5F9">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LOG KERUSAKAN &amp; SISA" android:textColor="#64748B" android:textSize="11sp" android:fontFamily="sans-serif-black" android:letterSpacing="0.1" android:layout_marginBottom="12dp"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Jumlah Porsi Rusak/Sisa"
+                        app:boxBackgroundColor="#F8FAFC"
+                        app:boxStrokeWidth="0dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etWastageCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-bold"
+                            android:textColor="#1E293B" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Alasan Utama Kerusakan"
+                        app:boxBackgroundColor="#F8FAFC"
+                        app:boxStrokeWidth="0dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etWastageReason"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="#1E293B" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLockAndSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="KIRIM LAPORAN"
+                android:fontFamily="sans-serif-black"
+                app:cornerRadius="20dp"
+                app:backgroundTint="@color/mbg_green_dark"
+                app:elevation="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="24dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/logo_mbg"
+                    android:alpha="0.2" />
+                <TextView
+                    android:id="@+id/tvTransactionId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="ID: --"
+                    android:textColor="#CBD5E1"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Logout Icon Wrapper -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="#FEF2F2"
+            app:cardCornerRadius="32dp"
+            app:cardElevation="0dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_lock_power_off"
+                app:tint="#EF4444" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Keluar Aplikasi?"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#1E293B"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Apakah Anda yakin ingin mengakhiri sesi ini? Anda harus masuk kembali untuk mengakses tugas."
+            android:textSize="14sp"
+            android:textColor="#64748B"
+            android:textAlignment="center"
+            android:lineSpacingExtra="2dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirmLogout"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:text="YA, KELUAR"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-black"
+                app:cornerRadius="18dp"
+                app:backgroundTint="#EF4444"
+                android:textColor="@color/white"
+                app:elevation="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelLogout"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:text="TIDAK, TETAP DISINI"
+                android:textColor="#94A3B8"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-bold"
+                app:cornerRadius="18dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:strokeWidth="1dp"
+    app:strokeColor="#F1F5F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Status Bar -->
+        <LinearLayout
+            android:id="@+id/layoutAiStatusHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="#F8FAFC"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/tvAiFinalStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="STATUS AI: --"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#1E293B"
+                android:textSize="12sp" />
+            <ImageView
+                android:id="@+id/ivAiStatusIcon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@android:drawable/checkbox_on_background"
+                app:tint="#16A34A" />
+        </LinearLayout>
+
+        <!-- AI Photo Analysis (Single Photo) -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#F1F5F9">
+            <ImageView
+                android:id="@+id/ivAiFoodPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo_mbg"
+                android:alpha="0.2" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DETEKSI KOMPOSISI"
+                android:textColor="#94A3B8"
+                android:textSize="9sp"
+                android:fontFamily="sans-serif-black" />
+            <TextView
+                android:id="@+id/tvAiDetection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="--"
+                android:textColor="#1E293B"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F5F9"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Nutrition Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚡ KALORI" android:textSize="8sp" android:fontFamily="sans-serif-black" android:textColor="#94A3B8"/>
+                    <TextView android:id="@+id/tvAiKalori" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 kcal" android:textColor="#1E293B" android:textSize="12sp" android:fontFamily="sans-serif-black"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🥩 PROTEIN" android:textSize="8sp" android:fontFamily="sans-serif-black" android:textColor="#94A3B8"/>
+                    <TextView android:id="@+id/tvAiProtein" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0g" android:textColor="#1E293B" android:textSize="12sp" android:fontFamily="sans-serif-black"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🥑 LEMAK" android:textSize="8sp" android:fontFamily="sans-serif-black" android:textColor="#94A3B8"/>
+                    <TextView android:id="@+id/tvAiLemak" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0g" android:textColor="#1E293B" android:textSize="12sp" android:fontFamily="sans-serif-black"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🍞 KARBO" android:textSize="8sp" android:fontFamily="sans-serif-black" android:textColor="#94A3B8"/>
+                    <TextView android:id="@+id/tvAiKarbo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0g" android:textColor="#1E293B" android:textSize="12sp" android:fontFamily="sans-serif-black"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F5F9"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CATATAN AUDIT AI"
+                android:textColor="#94A3B8"
+                android:textSize="9sp"
+                android:fontFamily="sans-serif-black" />
+            <TextView
+                android:id="@+id/tvAiReason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="--"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-medium" />
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

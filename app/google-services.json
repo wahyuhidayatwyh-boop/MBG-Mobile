@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "733399571588",
+    "project_id": "myappbackend-bb4b5",
+    "storage_bucket": "myappbackend-bb4b5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733399571588:android:bd66ca7f65123e96fe36d1",
+        "android_client_info": {
+          "package_name": "com.why.mbgdapur"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdIxSVTvftXbgQCO4eoTLBZ0gaOZakgE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

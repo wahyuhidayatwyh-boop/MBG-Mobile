@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MorningPrepActivity">
+
+    <!-- Motif Background Modern -->
+    <View
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="-320dp"
+        android:layout_marginEnd="-280dp"
+        android:background="@drawable/bg_circle_accent"
+        android:alpha="0.05"
+        app:layout_anchorGravity="top|end" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp">
+                <ImageView
+                    android:id="@+id/btnBackPrep"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_wrapper"
+                    android:backgroundTint="@color/mbg_slate_100"
+                    android:padding="10dp"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="@color/mbg_green_dark"
+                    android:contentDescription="Back" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="sans-serif-black"
+                    android:text="1. PERSIAPAN PAGI"
+                    android:textColor="@color/mbg_green_dark"
+                    android:textSize="18sp"
+                    android:letterSpacing="0.02" />
+            </RelativeLayout>
+
+            <!-- 1. AUDIT BAHAN & BELANJA -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AUDIT BAHAN &amp; BELANJA"
+                android:textColor="@color/mbg_slate_500"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="16dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/mbg_slate_100">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Foto Nota -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardCaptureReceipt"
+                                android:layout_width="match_parent"
+                                android:layout_height="130dp"
+                                app:cardCornerRadius="20dp"
+                                app:cardElevation="0dp"
+                                app:cardBackgroundColor="@color/white"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:id="@+id/ivReceiptPhoto"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:padding="45dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@android:drawable/ic_menu_camera"
+                                    app:tint="@color/mbg_green_primary" />
+                            </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="FOTO NOTA"
+                                android:textAlignment="center"
+                                android:textColor="@color/mbg_green_dark"
+                                android:textSize="10sp"
+                                android:fontFamily="sans-serif-black"/>
+                        </LinearLayout>
+
+                        <View android:layout_width="16dp" android:layout_height="match_parent"/>
+
+                        <!-- Foto Bahan -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cardCaptureRawMaterial"
+                                android:layout_width="match_parent"
+                                android:layout_height="130dp"
+                                app:cardCornerRadius="20dp"
+                                app:cardElevation="0dp"
+                                app:cardBackgroundColor="@color/white"
+                                android:clickable="true"
+                                android:focusable="true">
+                                <ImageView
+                                    android:id="@+id/ivRawMaterialPhoto"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@android:drawable/ic_menu_camera"
+                                    android:padding="45dp"
+                                    app:tint="@color/mbg_green_primary"/>
+                            </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="FOTO BAHAN"
+                                android:textAlignment="center"
+                                android:textColor="@color/mbg_green_dark"
+                                android:textSize="10sp"
+                                android:fontFamily="sans-serif-black"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:boxCornerRadiusTopStart="16dp"
+                        app:boxCornerRadiusTopEnd="16dp"
+                        app:boxCornerRadiusBottomStart="16dp"
+                        app:boxCornerRadiusBottomEnd="16dp"
+                        app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+                        app:startIconTint="@color/mbg_slate_500"
+                        android:hint="Total Berat Bahan Baku (KG)">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRawWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:fontFamily="sans-serif-medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:boxCornerRadiusTopStart="16dp"
+                        app:boxCornerRadiusTopEnd="16dp"
+                        app:boxCornerRadiusBottomStart="16dp"
+                        app:boxCornerRadiusBottomEnd="16dp"
+                        app:startIconDrawable="@android:drawable/ic_menu_agenda"
+                        app:startIconTint="@color/mbg_slate_500"
+                        android:hint="Total Modal Belanja (Rp)">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTotalCapital"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:fontFamily="sans-serif-medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 2. KESIAPAN PERSONEL -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HIGIENE &amp; KESIAPAN PERSONEL"
+                android:textColor="@color/mbg_slate_500"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/mbg_slate_100">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <CheckBox android:id="@+id/cbHealth" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Personel dapur sehat &amp; sudah cuci tangan" android:fontFamily="sans-serif-medium" android:padding="8dp"/>
+                    <CheckBox android:id="@+id/cbAttributes" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Menggunakan Apron, Masker, &amp; Hairnet" android:fontFamily="sans-serif-medium" android:padding="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 3. KEBERSIHAN AREA & ALAT -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SANITASI AREA &amp; PERALATAN"
+                android:textColor="@color/mbg_slate_500"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/mbg_slate_100">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <CheckBox android:id="@+id/cbPersonalHygiene" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Area kerja bebas hama (lalat/tikus)" android:fontFamily="sans-serif-medium" android:padding="8dp"/>
+                    <CheckBox android:id="@+id/cbSterilization" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Peralatan masak sudah disterilisasi" android:fontFamily="sans-serif-medium" android:padding="8dp"/>
+                    <CheckBox android:id="@+id/cbWorkspace" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lantai &amp; Meja produksi bersih" android:fontFamily="sans-serif-medium" android:padding="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 4. MUTU BAHAN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VERIFIKASI MUTU BAHAN"
+                android:textColor="@color/mbg_slate_500"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/mbg_slate_100">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <CheckBox android:id="@+id/cbQuantity" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bahan baku sesuai jumlah target" android:fontFamily="sans-serif-medium" android:padding="8dp"/>
+                    <CheckBox android:id="@+id/cbQuality" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bahan baku segar &amp; tidak kadaluarsa" android:fontFamily="sans-serif-medium" android:padding="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvPrepStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/mbg_slate_400"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSaveMorningPrep"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="24dp"
+        android:layout_gravity="bottom"
+        android:text="MULAI PRODUKSI"
+        android:fontFamily="sans-serif-black"
+        app:cornerRadius="20dp"
+        app:backgroundTint="@color/mbg_green_dark"
+        android:textColor="@color/white"
+        app:elevation="8dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MBGDapur" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/mbg_green_dark</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.MBGDapur" parent="Base.Theme.MBGDapur" />
+
+    <!-- Theme khusus untuk Splash Screen (Sistem) -->
+    <style name="Theme.App.Launch" parent="Theme.MBGDapur">
+        <item name="android:windowBackground">@color/white</item>
+
+        <!-- Android 12+ Splash Screen -->
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@android:color/transparent</item>
+
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!-- Style untuk menghapus indikator (background ungu) di Bottom Navigation -->
+    <style name="App.BottomNavigationView.ActiveIndicator" parent="">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+</resources>
